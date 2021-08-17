@@ -1,21 +1,5 @@
 package engine;
 
-// HOW TO CALCULATE?
-// by iterating through each slot in given number of cycles
-// we keep creating new randomized slots (that represent a composition of samples)
-// adjust our point to it and calculate a new distance from this point
-// if the new distance is smaller (better fit) than current distance
-// we save changes:
-// (current slots = new slots, current point = new point, current distance = new distance)
-
-// after this we get a fairly optimized distance (based on number of cycles) and a point
-// however, the built point would also include negative numbers
-// to fix this we have to make use of SCORES and RANKING (in the second stage method)
-
-// second stage method:
-// not known what second stage method does yet
-// seems to be some sort of a smoothing algorithm but does not always work?
-
 import java.util.*;
 
 import backend.data.CalculatorData;
