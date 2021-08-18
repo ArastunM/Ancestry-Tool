@@ -136,6 +136,10 @@ public class SingleWindow extends Window {
      */
     public void runSingle() {
         updateDatabaseReach();
+        if (databaseReach.size() < 2) {
+            new WarningPopup("Error", "No samples found with given settings").pop();
+            return;
+        }
 
         if (targetPanel.comboBox.getSelectedItem() == null) {
             new WarningPopup("Error", "Select a Target before running distance calculator").pop();
@@ -151,11 +155,6 @@ public class SingleWindow extends Window {
         Single single = new Single(target, cycleX);
         LinkedHashMap<String, Double> singleMap = single.getSingleMap(databaseReach);
         singleTable = new SingleTable(singleMap);
-
-        if (singleMap.size() == 0) {
-            new WarningPopup("Error", "No samples found with given settings").pop();
-            return;
-        }
 
         compositionPanel.removeAll();
         compositionPanel.setLayout(new BorderLayout());
