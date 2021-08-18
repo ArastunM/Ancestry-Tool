@@ -83,7 +83,7 @@ public class DatabaseAccess {
         if (fields[0].getText().equals("N/A") || fields[0].getText().equals("")
                 || CalculatorInput.findPercentageSum() != 100.0) { return 400; }
 
-        if (fieldText[fieldText.length - 1].equals("N/A") || fieldText[fieldText.length - 1].equals("")) {
+        if (fieldText.length == 5) {
             new SampleModern(fieldText[0], null, fieldText[1], type,
                     fieldText[2], percentages, fieldText[3], fieldText[4]);
             saveDatabase();
@@ -142,24 +142,24 @@ public class DatabaseAccess {
             assert percentages != null;
             double percentageSum = percentages.stream().mapToDouble(a -> a).sum();
             double errorMargin = percentageSum - 100;
+            if (Math.abs(errorMargin) > 5) { return 400; }
+
             percentages = CalculatorData.fixPercentage(percentages, errorMargin);
             percentageSum = percentages.stream().mapToDouble(a -> a).sum();
             double percentageRound = CalculatorData.round(percentageSum, 2);
 
-            if (percentages.size() == regionList.length) {
-                if (percentageRound == 100) {
-                    if (sampleType == 0) {
-                        new SampleModern(sourceName, null, "N/A", calculatorType,
-                                potentialSample[0] + suffix, percentages, "N/A", "N/A");
-                    } else if (sampleType == 1) {
-                        new SampleAncient(sourceName, null, "N/A", calculatorType,
-                                potentialSample[0] + suffix, percentages, "N/A",
-                                "N/A", "N/A");
-                    }
-                    statusCode = 200;
+            if (percentages.size() == regionList.length && percentageRound == 100) {
+                if (sampleType == 0) {
+                    new SampleModern(sourceName, null, "N/A", calculatorType,
+                            potentialSample[0] + suffix, percentages, "N/A", "N/A");
+                } else if (sampleType == 1) {
+                    new SampleAncient(sourceName, null, "N/A", calculatorType,
+                            potentialSample[0] + suffix, percentages, "N/A",
+                            "N/A", "N/A");
                 }
-                else { return 400; }
-            }
+                statusCode = 200;
+            } else { return 400; }
+
         }
         saveDatabase();
         return statusCode;
