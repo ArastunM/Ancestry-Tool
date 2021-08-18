@@ -24,7 +24,7 @@ should be installed.
 ## Getting Started
 The program can run by downloading, unzipping [Ancestry-Tool.zip](Ancestry-Tool.zip) and running the **Ancestry Tool App**
 
-The below directory should be ensured when running the jar application:
+Below directory should be ensured when running the jar application:
 
 ```
 +-- database
@@ -32,6 +32,7 @@ The below directory should be ensured when running the jar application:
 +-- Ancestry Tool App
 ```
 
+[Demo](demo/demo.mp4) video can be viewed for program features and their use.
 
 ## Database
 Project [database](database) is serialised file containing added samples. It is accessed upon program launch (loading database) 
