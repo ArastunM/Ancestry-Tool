@@ -18,11 +18,13 @@ The UI consists of light and dark mode layouts.
 ## Installation
 The project mainly utilizes in-built Java package [Swing](https://en.wikipedia.org/wiki/Swing_(Java)) for 
 the GUI; however, additional jcommon 1.0.23 and jfreechart 1.10.19 jar files of [JFreeChart](https://www.jfree.org/jfreechart/download.html) 
-should be installed.
+should be installed if the program is to be run from the source code.
+
+When run from the jar file, no additional installations are required.
 
 
 ## Getting Started
-The program can run by downloading, unzipping [Ancestry-Tool.zip](Ancestry-Tool.zip) and running the **Ancestry Tool App**
+The program can be accessed by downloading, unzipping [Ancestry-Tool.zip](Ancestry-Tool.zip) and running the **Ancestry Tool App**
 
 Below directory should be ensured when running the jar application:
 
