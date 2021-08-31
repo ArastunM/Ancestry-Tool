@@ -9,6 +9,10 @@ The goal is achieved by implementing a local database interface, individual samp
 and single calculators ([engine](src/engine)) to be used for sample composition comparisons. 
 The UI consists of light and dark mode layouts.
 
+<p>
+  <img src="demo/demo.png"></img>
+</p>
+
 
 ## Prerequisites
 [Java version 15.0.1](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html) along with
